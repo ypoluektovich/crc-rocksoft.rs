@@ -94,4 +94,12 @@ pub trait CrcHasher<T> {
     /// After an invocation of this method, the hasher is ready to accept
     /// new user data via the `update` method, as if this method wasn't invoked at all.
     fn finish(&self) -> T;
+
+
+    /// Update the internal state with all the bytes in the supplied slice.
+    fn update_from_slice(&mut self, bytes: &[u8]) {
+        for &b in bytes {
+            self.update(b);
+        }
+    }
 }

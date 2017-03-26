@@ -1,6 +1,6 @@
 [package]
 name = "crc-rocksoft"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["ypoluektovich"]
 description = "A parameterized CRC implementation"
 

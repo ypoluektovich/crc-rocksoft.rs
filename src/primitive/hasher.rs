@@ -76,6 +76,18 @@ mod tests {
     }
 
     #[test]
+    fn update_from_slice() {
+        let mut bytes: Vec<u8> = Vec::new();
+        for i in 1..10 {
+            bytes.push(0x30 + i);
+        }
+
+        let mut h = CrcTableHasher::from(CrcTable::new(0x04C11DB7u32, 0xFFFFFFFFu32, true, true, 0xFFFFFFFFu32));
+        h.update_from_slice(&bytes);
+        assert_eq!(h.finish(), 0xCBF43926u32);
+    }
+
+    #[test]
     fn crc32_posix() {
         test(CrcTable::new(0x04C11DB7u32, 0u32, false, false, 0xFFFFFFFFu32), 0x765E7680u32);
     }
