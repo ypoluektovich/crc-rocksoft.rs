@@ -42,9 +42,8 @@ pub trait CrcSpec<T> {
     fn refin(&self) -> bool;
 
     /// This is a boolean parameter. If its value is the same as `refin`,
-    /// the final value in the register is fed into the XOROUT stage directly,
-    /// otherwise, if this parameter is TRUE, the final register value is
-    /// reflected first.
+    /// the final value in the register is fed into the XOROUT stage directly;
+    /// otherwise, the final register value is reflected first.
     ///
     /// Alternatively, you can think of this value as the indicator of whether
     /// the result of the CRC computation should be reflected so that
